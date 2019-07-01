@@ -1,0 +1,21 @@
+{
+  "name": "aprsbot",
+  "version": "1.0.0",
+  "description": "Bot for retrieving APRS station data",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "aprs.fi",
+    "discord",
+    "bots",
+    "discord.js"
+  ],
+  "author": "Blake Enloe",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "request": "^2.88.0"
+  }
+}

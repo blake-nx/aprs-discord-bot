@@ -1,0 +1,8 @@
+{
+  "token": "BOT_TOKEN",
+  "prefix": "?",
+  "aprs_token": "APRS_API_TOKEN",
+  "gmaps_token": "GMAPS_API_TOKEN",
+  "timezone": "America/Chicago",
+  "embed_color": "#FFFFFF"
+}
