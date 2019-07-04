@@ -2,13 +2,6 @@ const request = require("request");
 const config = require("../config.json");
 const Discord = require("discord.js");
 
-let miniMapUrl;
-let lat;
-let lng;
-let altitude;
-let coords;
-let timeUpdated = new Date();
-
 let dateOptions = {
   weekday: "short",
   year: "numeric",
