@@ -36,7 +36,7 @@ client.on("message", message => {
     .trim()
     .split(/ +/g);
   const command = args.shift();
-  if (command === "call") {
+  if (command === "loc") {
     let callsign = args.join("").toLowerCase();
     getLocationInfo(callsign, message);
     return;
