@@ -46,5 +46,11 @@ client.on("message", message => {
     getWeather(callsign, message);
     return;
   }
+  if (command === "help") {
+    message.channel.send(
+      "**Currently available commands**:\n`?loc callsign` to retrieve location information.\n`?wx callsign` to retrieve weather data."
+    );
+    return;
+  }
 });
 client.login(config.token);
