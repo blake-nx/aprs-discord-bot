@@ -47,9 +47,7 @@ function getWeather(callsign, message) {
         let rain_mn = data.entries[0].rain_mn || "Not available";
         let luminosity = data.entries[0].luminosity || "Not available";
         timeUpdated = new Date(data.entries[0].time * 1000);
-        miniMapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${coords}&zoom=13&size=600x300&maptype=roadmap&markers=color:blue|${coords}&key=${
-          config.gmaps_token
-        }`;
+        let miniMapUrl = `http://www2.findu.com/cgi-bin/radar-find.cgi?call=${callsign}`;
         let locationEmbed = new Discord.RichEmbed()
           .setColor(config.embed_color)
           .setAuthor("APRS Bot")
@@ -64,6 +62,7 @@ function getWeather(callsign, message) {
           .addField("Rainfall since midnight", `${rain_mn}mm`)
           .addField("Luminosity", luminosity)
           .addField("Time", timeUpdated.toLocaleString("en-US", dateOptions))
+          .setImage(miniMapUrl)
           .setTimestamp()
           .setFooter("Data sourced from https://aprs.fi/");
         message.channel.send({ embed: locationEmbed });
