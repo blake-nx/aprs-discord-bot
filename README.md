@@ -2,9 +2,6 @@
 Discord.js bot for retrieving station data from https://aprs.fi
 !["Bot Snapshot"](https://i.imgur.com/zEMXdkY.png)
 
-### Demo
-You can test it out in the [APRS Discord server](https://discord.gg/2vsqBwp)
-
 ### Installation:
 
 1.  [Follow the guide here for creating your bot](https://anidiots.guide/getting-started/getting-started-long-version)
