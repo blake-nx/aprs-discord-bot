@@ -92,3 +92,7 @@ Blog
 
 #images
 *.jpg
+
+# asdf-vm
+.envrc
+.tool-versions
