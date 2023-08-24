@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "Bot for retrieving APRS station data",
   "main": "bot.js",
+  "type": "module",
   "scripts": {
+    "prettier:check": "prettier --cache .",
+    "prettier:write": "prettier --cache --write .",
+    "lint:nofix": "eslint . --cache && npm run prettier:check",
+    "lint": "eslint . --fix --cache && npm run prettier:write",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -17,5 +22,10 @@
   "dependencies": {
     "discord.js": "^14.13.0",
     "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.47.0",
+    "eslint-config-prettier": "^9.0.0",
+    "prettier": "^3.0.2"
   }
 }
