@@ -8,14 +8,14 @@
   },
   "keywords": [
     "aprs.fi",
-    "discord",
     "bots",
+    "discord",
     "discord.js"
   ],
   "author": "Blake Enloe",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.5.1",
-    "request": "^2.88.0"
+    "discord.js": "^14.13.0",
+    "request": "^2.88.2"
   }
 }
