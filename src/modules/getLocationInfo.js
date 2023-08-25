@@ -1,6 +1,6 @@
-const request = require('request');
-const config = require('../config.json');
-const Discord = require('discord.js');
+import request from 'request';
+import config from '../config.json';
+import Discord from 'discord.js';
 
 let dateOptions = {
   weekday: 'short',
@@ -12,14 +12,7 @@ let dateOptions = {
   timeZone: config.timezone,
 };
 
-function titleCase(title) {
-  if (title.length > 0) {
-    return title.charAt(0).toUpperCase() + title.slice(1);
-  }
-  return;
-}
-
-function getLocationInfo(callsign, message) {
+export default function getLocationInfo(callsign, message) {
   request.get(
     `https://api.aprs.fi/api/get?name=${callsign}&what=loc&apikey=${config.aprs_token}&format=json`,
     function (error, res, body) {
@@ -58,5 +51,3 @@ function getLocationInfo(callsign, message) {
     }
   );
 }
-
-module.exports = getLocationInfo;

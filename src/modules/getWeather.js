@@ -1,6 +1,6 @@
-const request = require('request');
-const config = require('../config.json');
-const Discord = require('discord.js');
+import request from 'request';
+import config from '../config.json';
+import Discord from 'discord.js';
 
 let dateOptions = {
   weekday: 'short',
@@ -12,14 +12,7 @@ let dateOptions = {
   timeZone: config.timezone,
 };
 
-function titleCase(title) {
-  if (title.length > 0) {
-    return title.charAt(0).toUpperCase() + title.slice(1);
-  }
-  return;
-}
-
-function getWeather(callsign, message) {
+export default function getWeather(callsign, message) {
   request.get(
     `https://api.aprs.fi/api/get?name=${callsign}&what=wx&apikey=${config.aprs_token}&format=json`,
     function (error, res, body) {
@@ -44,7 +37,7 @@ function getWeather(callsign, message) {
         let rain_24h = data.entries[0].rain_24h ? `${data.entries[0].rain_24h}mm` : 'Not available';
         let rain_mn = data.entries[0].rain_mn ? `${data.entries[0].rain_mn}mm` : 'Not available';
         let luminosity = data.entries[0].luminosity || 'Not available';
-        timeUpdated = new Date(data.entries[0].time * 1000);
+        let timeUpdated = new Date(data.entries[0].time * 1000);
         let miniMapUrl = `http://www.findu.com/cgi-bin/radar-find.cgi?call=${callsign}`;
         let locationEmbed = new Discord.RichEmbed()
           .setColor(config.embed_color)
@@ -56,18 +49,16 @@ function getWeather(callsign, message) {
           .addField('Wind speed', wind_speed)
           .addField('Wind gust', wind_gust)
           .addField('Rainfall past 1hr', rain_1h)
-          .addField('Rainfall past 24hrs', rain_1h)
+          .addField('Rainfall past 24hrs', rain_24h)
           .addField('Rainfall since midnight', rain_mn)
           .addField('Luminosity', luminosity)
           .addField('Time', timeUpdated.toLocaleString('en-US', dateOptions))
           .setImage(miniMapUrl)
           .setTimestamp()
-          .setFooter('Data sourced from https://aprs.fi/');
+          .setFooter(`Source: https://aprs.fi/${callsign}`);
         message.channel.send({ embed: locationEmbed });
         return;
       }
     }
   );
 }
-
-module.exports = getWeather;

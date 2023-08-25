@@ -25,23 +25,27 @@ client.on('ready', () => {
 client.on('message', (message) => {
   if (message.author.bot) return;
   if (message.content.indexOf(config.prefix) !== 0) return;
+  let callsign;
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift();
-  if (command === 'loc') {
-    let callsign = args.join('').toLowerCase();
-    getLocationInfo(callsign, message);
-    return;
-  }
-  if (command === 'weather' || command === 'wx') {
-    let callsign = args.join('').toLowerCase();
-    getWeather(callsign, message);
-    return;
-  }
-  if (command === 'help') {
-    message.channel.send(
-      '**Currently available commands**:\n`?loc callsign` to retrieve location information.\n`?wx callsign` to retrieve weather data.'
-    );
-    return;
+  switch (command) {
+    case 'loc':
+      callsign = args.join('').toLowerCase();
+      getLocationInfo(callsign, message);
+      return;
+    case 'weather':
+    case 'wx':
+      callsign = args.join('').toLowerCase();
+      getWeather(callsign, message);
+
+      return;
+    case 'help':
+      message.channel.send(
+        '**Currently available commands**:\n`?loc callsign` to retrieve location information.\n`?wx callsign` to retrieve weather data.'
+      );
+      return;
+    default:
+      break;
   }
 });
 

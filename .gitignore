@@ -93,6 +93,9 @@ Blog
 #images
 *.jpg
 
+# vscode
+.vscode
+
 # asdf-vm
 .envrc
 .tool-versions
