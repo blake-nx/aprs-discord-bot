@@ -1,0 +1,135 @@
+// /$ BASIC SYMBOL TABLE
+'/!': 'Police, Sheriff',
+'/"': 'reserved  (was rain)',
+'/#': 'DIGI (white center)',
+'/$': 'PHONE',
+'/%': 'DX CLUSTER',
+'/&': 'HF GATEway',
+'/'': 'Small AIRCRAFT (SSID-11)',
+'/(': 'Mobile Satellite Station',
+'/)': 'Wheelchair (handicapped)',
+'/*': 'SnowMobile',
+'/+': 'Red Cross',
+'/,': 'Boy Scouts',
+'/-': 'House QTH (VHF)',
+'/.': 'X',
+'//': 'Red Dot',
+
+// \$ OTHER SYMBOL TABLE (\)
+'\!': 'EMERGENCY (and overlays)',
+'\"': 'reserved',
+'\#': 'OVERLAY DIGI (green star)',
+'\$': 'Bank or ATM  (green box)',
+'\%': 'Power Plant with overlay',
+'\&': 'I=Igte R=RX T=1hopTX 2=2hopTX',
+'\'': 'Crash (& now Incident sites)',
+'\(': 'CLOUDY (other clouds w ovrly)',
+'\)': 'Firenet MEO, MODIS Earth Obs.',
+'\*': 'AVAIL (SNOW moved to ` ovly S)',
+'\+': 'Church',
+'\,': 'Girl Scouts',
+'\-': 'House (H=HF) (O = Op Present)',
+'\.': 'Ambiguous (Big Question mark)',
+'\/': 'Waypoint Destination, See APRSdos MOBILE.txt',
+
+// /$  PRIMARY SYMBOL TABLE
+'/0': '# circle (obsolete)',
+'/1': 'TBD (these were numbered)',
+'/2': 'TBD (circles like pool)',
+'/3': 'TBD (balls.  But with)',
+'/4': 'TBD (overlays, we can)',
+'/5': 'TBD (put all #'s on one)',
+'/6': 'TBD (So 1-9 are available)',
+'/7': 'TBD (for new uses?)',
+'/8': 'TBD (They are often used)',
+'/9': 'TBD (as mobiles at events)',
+'/:': 'FIRE',
+'/;': 'Campground (Portable ops)',
+'/<': 'Motorcycle (SSID-10)',
+'/=': 'RAILROAD ENGINE',
+'/>': 'CAR (SSID-9)',
+'/?': 'SERVER for Files',
+'/@': 'HC FUTURE predict (dot)',
+'/A': 'Aid Station',
+'/B': 'BBS or PBBS',
+'/C': 'Canoe',
+'/D': '',
+'/E': EYEBALL (Events, etc!)',
+'/F': Farm Vehicle (tractor)',
+'/G': Grid Square (6 digit)',
+'/H': HOTEL (blue bed symbol)',
+'/I': TcpIp on air network stn',
+'/J': ',
+'/K': 'School',
+'/L': 'PC user (Jan 03)',
+'/M': 'MacAPRS',
+'/N': 'NTS Station',
+'/O': 'BALLOON (SSID-11)',
+'/P': 'Police',
+'/Q': 'TBD',
+'/R': 'REC. VEHICLE (SSID-13)',
+'/S': 'SHUTTLE',
+'/T': 'SSTV',
+'/U': 'BUS (SSID-2)',
+'/V': 'ATV',
+'/W': 'National WX Service Site',
+'/X': 'HELO (SSID-6)',
+'/Y': 'YACHT (sail (SSID-5)',
+'/Z': 'WinAPRS',
+'/[': 'Human/Person (SSID-7)',
+'/\': 'TRIANGLE(DF station)',
+'/]': 'MAIL/PostOffice(was PBBS)',
+'/^': 'LARGE AIRCRAFT',
+'/_': 'WEATHER Station (blue)',
+'/`': 'Dish Antenna',
+
+// \$  ALTERNATE SYMBOL TABLE (\)
+'\0': 'CIRCLE (IRLP/Echolink/WIRES)'
+'\1': 'AVAIL'
+'\2': 'AVAIL'
+'\3': 'AVAIL'
+'\4': 'AVAIL'
+'\5': 'AVAIL'
+'\6': 'AVAIL'
+'\7': 'AVAIL'
+'\8': '802.11 or other network node'
+'\9': 'Gas Station (blue pump)'
+'\:': 'AVAIL (Hail ==> ` ovly H)'
+'\;': 'Park/Picnic + overlay events'
+'\<': 'ADVISORY (one WX flag)'
+'\=': 'avail. symbol overlay group'
+'\>': 'OVERLAYED CARs & Vehicles'
+'\?': 'INFO Kiosk  (Blue box with ?)'
+'\@': 'HURICANE/Trop-Storm'
+'\A': 'overlayBOX DTMF & RFID & XO'
+'\B': 'AVAIL (BlwngSnow ==> E ovly B)'
+'\C': 'Coast Guard'
+'\D': 'DEPOTS (Drizzle ==> ' ovly D)'
+'\E': 'Smoke (& other vis codes)'
+'\F': 'AVAIL (FrzngRain ==> `F)'
+'\G': 'AVAIL (Snow Shwr ==> I ovly S)'
+'\H': '\Haze (& Overlay Hazards)'
+'\I': 'Rain Shower'
+'\J': 'AVAIL (Lightening ==> I ovly L)'
+'\K': 'Kenwood HT (W)'
+'\L': 'Lighthouse'
+'\M': 'MARS (A=Army,N=Navy,F=AF)'
+'\N': 'Navigation Buoy'
+'\O': 'Overlay Balloon (Rocket = \O)'
+'\P': 'Parking'
+'\Q': 'QUAKE'
+'\R': 'Restaurant'
+'\S': 'Satellite/Pacsat'
+'\T': 'Thunderstorm'
+'\U': 'SUNNY'
+'\V': 'VORTAC Nav Aid'
+'\W': '# NWS site (NWS options)'
+'\X': 'Pharmacy Rx (Apothicary)'
+'\Y': 'Radios and devices'
+'\Z': 'AVAIL'
+'\[': 'W.Cloud (& humans w Ovrly)'
+'\\': 'New overlayable GPS symbol'
+'\]': 'AVAIL'
+'\^': 'other Aircraft ovrlys (2014)'
+'\_': '# WX site (green digi)'
+'\`': 'Rain (all types w ovrly)'
