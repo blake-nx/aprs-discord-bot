@@ -1,4 +1,5 @@
 # APRS Discord Bot
+
 Discord.js bot for retrieving station data from https://aprs.fi
 !["Bot Snapshot"](https://i.imgur.com/zEMXdkY.png)
 
@@ -11,10 +12,12 @@ Discord.js bot for retrieving station data from https://aprs.fi
 5.  run `node bot.js`
 
 ### Commands:
+
 - `?loc callsign` to retrieve location information.
 - `?wx callsign` to retrieve weather data.
 
 Replace `callsign` with your device's callsign.
 
 ### Todos:
+
 - Handle empty/additional fields in the response data for different types of stations
