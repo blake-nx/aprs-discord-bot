@@ -6,7 +6,7 @@ import {
   // OAuth2Scopes,
   ActivityType,
 } from 'discord.js';
-import { config } from './utils/loadConfig.js'
+import config from './utils/loadConfig.js';
 import { getLocationInfo } from './modules/getLocationInfo.js';
 import { getWeather } from './modules/getWeather.js';
 

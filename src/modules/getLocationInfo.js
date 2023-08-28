@@ -1,6 +1,6 @@
-import got from 'got';
 import { EmbedBuilder } from 'discord.js';
-import { config } from '../utils/loadConfig.js';
+import got from '../utils/got.js';
+import config from '../utils/loadConfig.js';
 import { DATE_OPTIONS, UNAVAILABLE } from '../utils/enums.js';
 
 export async function getLocationInfo(callsign, message) {
@@ -10,9 +10,7 @@ export async function getLocationInfo(callsign, message) {
 
   try {
     const data = await got
-      .get(
-        `https://api.aprs.fi/api/get?name=${callsign}&what=loc&apikey=${config.aprs_token}&format=json`
-      )
+      .get(`get?name=${callsign}&what=loc&apikey=${config.aprs_token}&format=json`)
       .json();
 
     if (!data.found) {
@@ -38,8 +36,14 @@ export async function getLocationInfo(callsign, message) {
               { name: 'Coordinates', value: coords },
               { name: 'Altitude', value: altitude },
               { name: 'Beacon comment', value: comment },
-              { name: 'Time', value: timeUpdated.toLocaleString('en-US', DATE_OPTIONS) },
-              { name: 'Last Updated', value: lastUpdated.toLocaleString('en-US', DATE_OPTIONS) },
+              {
+                name: 'First Beacon at position',
+                value: timeUpdated.toLocaleString('en-US', DATE_OPTIONS),
+              },
+              {
+                name: 'Last Beacon at position',
+                value: lastUpdated.toLocaleString('en-US', DATE_OPTIONS),
+              },
               {
                 name: 'GMaps',
                 value: `https://www.google.com/maps/search/?api=1&query=${coords}`,

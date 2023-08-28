@@ -1,6 +1,6 @@
-import got from 'got';
 import { EmbedBuilder } from 'discord.js';
-import { config } from '../utils/loadConfig.js';
+import got from '../utils/got.js';
+import config from '../utils/loadConfig.js';
 import { DATE_OPTIONS, UNAVAILABLE } from '../utils/enums.js';
 
 export async function getWeather(callsign, message) {
@@ -10,9 +10,7 @@ export async function getWeather(callsign, message) {
 
   try {
     const data = await got
-      .get(
-        `https://api.aprs.fi/api/get?name=${callsign}&what=wx&apikey=${config.aprs_token}&format=json`
-      )
+      .get(`get?name=${callsign}&what=wx&apikey=${config.aprs_token}&format=json`)
       .json();
 
     if (!data.found) {
@@ -48,8 +46,14 @@ export async function getWeather(callsign, message) {
               { name: 'Rainfall past 24hrs', value: rain_24h },
               { name: 'Rainfall since midnight', value: rain_mn },
               { name: 'Luminosity', value: luminosity },
-              { name: 'Time', value: timeUpdated.toLocaleString('en-US', DATE_OPTIONS) },
-              { name: 'Last Updated', value: lastUpdated.toLocaleString('en-US', DATE_OPTIONS) },
+              {
+                name: 'First Beacon at position',
+                value: timeUpdated.toLocaleString('en-US', DATE_OPTIONS),
+              },
+              {
+                name: 'Last Beacon at position',
+                value: lastUpdated.toLocaleString('en-US', DATE_OPTIONS),
+              },
             ])
             .setImage(miniMapUrl)
             .setTimestamp()

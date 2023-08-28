@@ -1,4 +1,4 @@
-import { config } from './loadConfig.js'
+import config from './loadConfig.js';
 
 export const DATE_OPTIONS = {
   weekday: 'short',
