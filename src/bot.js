@@ -6,11 +6,9 @@ import {
   // OAuth2Scopes,
   ActivityType,
 } from 'discord.js';
-import { loadJSON } from './utils/loadJSON.js';
+import { config } from './utils/loadConfig.js'
 import { getLocationInfo } from './modules/getLocationInfo.js';
 import { getWeather } from './modules/getWeather.js';
-
-const config = await loadJSON('../../config.json');
 
 const client = new Client({
   intents: [

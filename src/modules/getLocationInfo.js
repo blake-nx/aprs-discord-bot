@@ -1,9 +1,7 @@
 import got from 'got';
 import { EmbedBuilder } from 'discord.js';
-import { loadJSON } from '../utils/loadJSON.js';
+import { config } from '../utils/loadConfig.js';
 import { DATE_OPTIONS, UNAVAILABLE } from '../utils/enums.js';
-
-const config = await loadJSON('../../config.json');
 
 export async function getLocationInfo(callsign, message) {
   if (!callsign) {

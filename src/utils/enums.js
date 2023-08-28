@@ -1,6 +1,4 @@
-import { loadJSON } from '../utils/loadJSON.js';
-
-const config = await loadJSON('../../config.json');
+import { config } from './loadConfig.js'
 
 export const DATE_OPTIONS = {
   weekday: 'short',
