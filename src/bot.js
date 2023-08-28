@@ -2,7 +2,8 @@ import {
   Client,
   Events,
   GatewayIntentBits,
-  // PermissionFlagsBits, OAuth2Scopes,
+  // PermissionFlagsBits,
+  // OAuth2Scopes,
   ActivityType,
 } from 'discord.js';
 import { loadJSON } from './utils/loadJSON.js';
