@@ -9,5 +9,3 @@ export const DATE_OPTIONS = {
   minute: 'numeric',
   timeZone: config.timezone,
 };
-
-export const UNAVAILABLE = 'Unavailable';

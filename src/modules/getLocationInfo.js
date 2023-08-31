@@ -14,7 +14,7 @@ export async function getLocationInfo(callsign, message) {
       .json();
 
     if (!data.found) {
-      return message.channel.send(
+      return message.reply(
         "Sorry, I couldn't find that. Please check the callsign and try again."
       );
     } else {
@@ -45,6 +45,7 @@ export async function getLocationInfo(callsign, message) {
           value: `https://www.google.com/maps/search/?api=1&query=${coords}`,
         },
       ].filter(Boolean);
+
       message.channel.send({
         embeds: [
           new EmbedBuilder()

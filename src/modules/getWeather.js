@@ -5,7 +5,7 @@ import { DATE_OPTIONS } from '../utils/enums.js';
 
 export async function getWeather(callsign, message) {
   if (!callsign) {
-    return message.channel.send("Hmm, Looks like you didn't provide a callsign. Try again!");
+    return message.reply("Hmm, Looks like you didn't provide a callsign. Try again!");
   }
 
   try {
@@ -14,7 +14,7 @@ export async function getWeather(callsign, message) {
       .json();
 
     if (!data.found) {
-      return message.channel.send(
+      return message.reply(
         "Sorry, I couldn't find that. Please check the callsign and try again."
       );
     } else {
@@ -51,6 +51,7 @@ export async function getWeather(callsign, message) {
           value: lastUpdated.toLocaleString('en-US', DATE_OPTIONS),
         },
       ].filter(Boolean);
+
       message.channel.send({
         embeds: [
           new EmbedBuilder()
