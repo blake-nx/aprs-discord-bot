@@ -1,6 +1,5 @@
 {
   "token": "BOT_TOKEN",
-  "bot_name": "APRS Bot",
   "prefix": "?",
   "aprs_token": "APRS_API_TOKEN",
   "gmaps_token": "GMAPS_API_TOKEN",
