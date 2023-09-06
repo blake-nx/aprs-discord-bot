@@ -52,7 +52,7 @@ export async function getWeather(callsign, message) {
         },
       ].filter(Boolean);
 
-      message.channel.send({
+      message.reply({
         embeds: [
           new EmbedBuilder()
             .setColor(config.embed_color)
