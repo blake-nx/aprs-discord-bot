@@ -29,7 +29,6 @@ export async function getWeather(callsign, message) {
       let rain_mn = data.entries[0].rain_mn ? `${data.entries[0].rain_mn}mm` : null;
       let luminosity = data.entries[0].luminosity || null;
       let timeUpdated = new Date(data.entries[0].time * 1000);
-      let lastUpdated = new Date(data.entries[0].lasttime * 1000);
       let miniMapUrl = `http://www.findu.com/cgi-bin/radar-find.cgi?call=${callsign}`;
       const fields = [
         temp && { name: 'Temp', value: temp },
@@ -43,12 +42,8 @@ export async function getWeather(callsign, message) {
         rain_mn && { name: 'Rainfall since midnight', value: rain_mn },
         luminosity && { name: 'Luminosity', value: luminosity },
         {
-          name: 'First Beacon at position',
+          name: 'Last updated',
           value: timeUpdated.toLocaleString('en-US', DATE_OPTIONS),
-        },
-        {
-          name: 'Last Beacon at position',
-          value: lastUpdated.toLocaleString('en-US', DATE_OPTIONS),
         },
       ].filter(Boolean);
 
