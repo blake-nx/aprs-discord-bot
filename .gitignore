@@ -80,24 +80,9 @@ typings/
 
 #DynamoDB Local files
 .dynamodb/
-© 2018 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
 
 #images
 *.jpg
 
 # vscode
 .vscode
-
-# asdf-vm
-.envrc
-.tool-versions
