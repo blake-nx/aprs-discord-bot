@@ -53,7 +53,7 @@ export async function getLocationInfo(callsign, message) {
         },
         {
           name: 'Track on APRS.fi',
-          value: `https://aprs.fi/#!call=a%2F${callsign}`,
+          value: `https://aprs.fi/#!z=12&call=a%2F${callsign}`,
         },
       ].filter(Boolean);
 
