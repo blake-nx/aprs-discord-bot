@@ -52,8 +52,8 @@ export async function getLocationInfo(callsign, message) {
           value: lastUpdated.toLocaleString('en-US', DATE_OPTIONS),
         },
         {
-          name: 'GMaps',
-          value: `https://www.google.com/maps/search/?api=1&query=${coords}`,
+          name: 'Track on APRS.fi',
+          value: `https://aprs.fi/#!call=a%2F${callsign}`,
         },
       ].filter(Boolean);
 
