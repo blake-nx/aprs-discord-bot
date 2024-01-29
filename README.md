@@ -15,7 +15,7 @@ Discord.js bot for retrieving station data from https://aprs.fi
 ## Commands
 
 - `?loc callsign` to retrieve location information.
-- `?messages callsign` to retrieve location information.
+- `?messages callsign` to retrieve latest ten APRS messages for the given callsign.
 - `?wx callsign` to retrieve weather data (or `?weather`).
 
 Replace `callsign` with your device's callsign.
