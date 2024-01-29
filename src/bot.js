@@ -47,27 +47,27 @@ client.on(Events.MessageCreate, (message) => {
   const command = args.shift().toLowerCase();
   let callsign;
   switch (command) {
-    // case 'loc':
-    //   callsign = args[0];
-    //   getLocationInfo(callsign, message);
-    //   break;
+    case 'loc':
+      callsign = args[0];
+      getLocationInfo(callsign, message);
+      break;
     case 'messages':
       callsign = args[0];
       getMessages(callsign, message);
       break;
     case 'weather':
-//     case 'wx':
-//       callsign = args[0];
-//       getWeather(callsign, message);
-//       break;
-//     case 'help':
-//       message.channel.send(
-//         `**Currently available commands**:
-// \`${config.prefix}loc callsign\` to retrieve location information.
-// \`${config.prefix}msg callsign\` to retrieve ten latest messages for given recipient.
-// \`${config.prefix}wx callsign\` to retrieve weather data.`
-//       );
-//       break;
+    case 'wx':
+      callsign = args[0];
+      getWeather(callsign, message);
+      break;
+    case 'help':
+      message.channel.send(
+        `**Currently available commands**:
+\`${config.prefix}loc callsign\` to retrieve location information.
+\`${config.prefix}msg callsign\` to retrieve ten latest messages for given recipient.
+\`${config.prefix}wx callsign\` to retrieve weather data.`
+      );
+      break;
     default:
       break;
   }
