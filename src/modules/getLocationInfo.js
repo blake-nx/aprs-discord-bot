@@ -1,8 +1,9 @@
 import { EmbedBuilder } from 'discord.js';
+import { DATE_OPTIONS } from '../utils/enums.js';
+import { getCallsignTrackingUrl } from '../utils/getCallsignTrackingUrl.js';
+import { getIconURLFromSymbol } from '../utils/getIconFromsymbol.js';
 import got from '../utils/got.js';
 import config from '../utils/loadConfig.js';
-import { DATE_OPTIONS } from '../utils/enums.js';
-import { getIconURLFromSymbol } from '../utils/getIconFromsymbol.js';
 
 export async function getLocationInfo(callsign, message) {
   if (!callsign) {
@@ -11,13 +12,11 @@ export async function getLocationInfo(callsign, message) {
 
   try {
     const data = await got
-      .get(`get?name=${callsign}&what=loc&apikey=${config.aprs_token}&format=json`)
+      .get(`get?what=loc&name=${callsign}&apikey=${config.aprs_token}&format=json`)
       .json();
 
     if (!data.found) {
-      return message.reply(
-        "Sorry, I couldn't find that. Please check the callsign and try again."
-      );
+      return message.reply("Sorry, I couldn't find that. Please check the callsign and try again.");
     } else {
       const symbol = data.entries[0].symbol;
       const lat = data.entries[0].lat;
@@ -36,7 +35,10 @@ export async function getLocationInfo(callsign, message) {
       miniMapUrl.searchParams.set('zoom', 13);
       miniMapUrl.searchParams.set('size', '600x300');
       miniMapUrl.searchParams.set('maptype', 'roadmap');
-      miniMapUrl.searchParams.set('markers', `${iconSymbol ? `icon:${iconSymbol}|anchor:center` : 'color:red'}|${coords}`);
+      miniMapUrl.searchParams.set(
+        'markers',
+        `${iconSymbol ? `icon:${iconSymbol}|anchor:center` : 'color:red'}|${coords}`
+      );
       miniMapUrl.searchParams.set('key', config.gmaps_token);
 
       const fields = [
@@ -53,7 +55,7 @@ export async function getLocationInfo(callsign, message) {
         },
         {
           name: 'Track on APRS.fi',
-          value: `https://aprs.fi/#!z=12&call=a%2F${callsign}`,
+          value: `${getCallsignTrackingUrl(callsign)}`,
         },
       ].filter(Boolean);
 
@@ -61,6 +63,7 @@ export async function getLocationInfo(callsign, message) {
         embeds: [
           new EmbedBuilder()
             .setColor(config.embed_color)
+            .setTitle(`Location Information For ${callsign}`)
             .addFields(fields)
             .setImage(miniMapUrl.toString())
             .setTimestamp()

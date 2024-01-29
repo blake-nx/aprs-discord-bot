@@ -1,8 +1,9 @@
 import got from 'got';
+import config from './loadConfig.js';
 
 export default got.extend({
   prefixUrl: 'https://api.aprs.fi/api/',
   headers: {
-    'user-agent': `aprs-discord-bot v1 (+https://github.com/brandonb927/aprs-discord-bot)`,
+    'user-agent': config.user_agent,
   },
 });

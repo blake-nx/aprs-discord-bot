@@ -1,7 +1,7 @@
 import { EmbedBuilder } from 'discord.js';
+import { DATE_OPTIONS } from '../utils/enums.js';
 import got from '../utils/got.js';
 import config from '../utils/loadConfig.js';
-import { DATE_OPTIONS } from '../utils/enums.js';
 
 export async function getWeather(callsign, message) {
   if (!callsign) {
@@ -10,13 +10,11 @@ export async function getWeather(callsign, message) {
 
   try {
     const data = await got
-      .get(`get?name=${callsign}&what=wx&apikey=${config.aprs_token}&format=json`)
+      .get(`get?what=wx&name=${callsign}&apikey=${config.aprs_token}&format=json`)
       .json();
 
     if (!data.found) {
-      return message.reply(
-        "Sorry, I couldn't find that. Please check the callsign and try again."
-      );
+      return message.reply("Sorry, I couldn't find that. Please check the callsign and try again.");
     } else {
       let temp = data.entries[0].temp ? `${data.entries[0].temp}C` : null;
       let pressure = data.entries[0].pressure || null;
@@ -51,6 +49,7 @@ export async function getWeather(callsign, message) {
         embeds: [
           new EmbedBuilder()
             .setColor(config.embed_color)
+            .setTitle(`Weather Information For ${callsign}`)
             .addFields(fields)
             .setImage(miniMapUrl)
             .setTimestamp()

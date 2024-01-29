@@ -7,6 +7,7 @@ import {
   ActivityType,
 } from 'discord.js';
 import config from './utils/loadConfig.js';
+import { getMessages } from './modules/getMessages.js';
 import { getLocationInfo } from './modules/getLocationInfo.js';
 import { getWeather } from './modules/getWeather.js';
 
@@ -34,9 +35,6 @@ client.on(Events.ClientReady, async () => {
   //     scopes: [OAuth2Scopes.Bot],
   //   });
   // console.log(`Invite link: ${inviteLink}`);
-  // console.log(
-  //   `APRS Bot firing up with ${client.users.cache.size} users, in ${client.channels.cache.size} channels of ${client.guilds.cache.size} guilds.`
-  // );
   console.log(`APRS Bot ready!`);
   client.user.setActivity('Stations', { type: ActivityType.Watching });
 });
@@ -49,22 +47,27 @@ client.on(Events.MessageCreate, (message) => {
   const command = args.shift().toLowerCase();
   let callsign;
   switch (command) {
-    case 'loc':
+    // case 'loc':
+    //   callsign = args[0];
+    //   getLocationInfo(callsign, message);
+    //   break;
+    case 'messages':
       callsign = args[0];
-      getLocationInfo(callsign, message);
+      getMessages(callsign, message);
       break;
     case 'weather':
-    case 'wx':
-      callsign = args[0];
-      getWeather(callsign, message);
-      break;
-    case 'help':
-      message.channel.send(
-        `**Currently available commands**:
-\`${config.prefix}loc callsign\` to retrieve location information.
-\`${config.prefix}wx callsign\` to retrieve weather data.`
-      );
-      break;
+//     case 'wx':
+//       callsign = args[0];
+//       getWeather(callsign, message);
+//       break;
+//     case 'help':
+//       message.channel.send(
+//         `**Currently available commands**:
+// \`${config.prefix}loc callsign\` to retrieve location information.
+// \`${config.prefix}msg callsign\` to retrieve ten latest messages for given recipient.
+// \`${config.prefix}wx callsign\` to retrieve weather data.`
+//       );
+//       break;
     default:
       break;
   }

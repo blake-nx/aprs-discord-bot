@@ -4,5 +4,6 @@
   "aprs_token": "APRS_API_TOKEN",
   "gmaps_token": "GMAPS_API_TOKEN",
   "timezone": "America/Chicago",
-  "embed_color": "#FFFFFF"
+  "embed_color": "#FFFFFF",
+  "user_agent": "aprs-discord-bot v1 (+https://github.com/blake-nx/aprs-discord-bot)"
 }
