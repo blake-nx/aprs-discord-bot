@@ -6,18 +6,24 @@ Discord.js bot for retrieving station data from https://aprs.fi
 ## Installation
 
 1. [Follow the guide here for creating your bot](https://anidiots.guide/getting-started/getting-started-long-version)
-2. Clone this repository locally
-3. Navigate to the bot directory and run `npm ci`
-4. Rename `config.example.json` to `config.json` and replace the tokens, timezone, and embed color with your own.
-5. Using Node.js v18.16.0, run `src/node bot.js`
+1. Clone this repository locally
+1. Install [`asdf`](https://github.com/asdf-vm/asdf/) with the [`asdf-nodejs`](https://github.com/asdf-vm/asdf-nodejs) plugin (or run ensure the version of node in the `.tool-versions` is available to you)
+1. Install dependencies with `npm ci`
+1. Rename `config.example.json` to `config.json` and replace the tokens, timezone, and embed color with your own.
+1. Run `npm run start`
 
 ## Commands
 
 - `?loc callsign` to retrieve location information.
-- `?wx callsign` to retrieve weather data.
+- `?messages callsign` to retrieve location information.
+- `?wx callsign` to retrieve weather data (or `?weather`).
 
 Replace `callsign` with your device's callsign.
 
-## Todos
+## Contributing
+
+1. Run `npm run start:dev` to have the bot code refresh when changes are made
+
+## TODOs
 
 - Handle empty/additional fields in the response data for different types of stations

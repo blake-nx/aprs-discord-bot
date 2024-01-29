@@ -9,7 +9,8 @@
     "prettier:write": "prettier --cache --write .",
     "lint:nofix": "eslint . --cache && npm run prettier:check",
     "lint": "eslint . --fix --cache && npm run prettier:write",
-    "start": "nodemon ./src/bot.js",
+    "start:dev": "nodemon ./src/bot.js",
+    "start": "node ./src/bot.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
