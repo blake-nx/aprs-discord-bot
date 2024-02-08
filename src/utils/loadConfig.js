@@ -3,7 +3,7 @@ import fsExtra from 'fs-extra';
 function getEnv(name, fallback = null) {
   let val = process.env[name];
   if (val === undefined || val === null) {
-    if (fallback !== null) {
+    if (fallback === null) {
       throw `Missing environment variale for ${name}`;
     }
     return fallback;
