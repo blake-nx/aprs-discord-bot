@@ -18,7 +18,7 @@ let config;
 if (fsExtra.existsSync(jsonFile)) {
   config = await fsExtra.readJson(jsonFile);
 } else {
-  // Allow environment variables to be defined as well for coinfig values
+  // Allow environment variables to be defined as well for config values
   config = {
     token: getEnv('BOT_DISCORD_TOKEN'),
     prefix: getEnv('BOT_MSG_PREFIX', '?'),
