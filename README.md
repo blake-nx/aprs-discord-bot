@@ -9,6 +9,10 @@ You can use this code as a docker image, or run it from the source (see The next
 
 A docker image of the latest `master` build is available on the GitHub Container Registry.
 
+```sh
+docker pull ghcr.io/brandonb927/aprs-discord-bot:latest
+```
+
 ## Installation
 
 1. [Follow the guide here for creating your bot](https://anidiots.guide/getting-started/getting-started-long-version)
