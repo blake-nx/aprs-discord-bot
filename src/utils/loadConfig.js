@@ -32,6 +32,5 @@ if (fsExtra.existsSync(jsonFile)) {
     ),
   };
 }
-console.log(config);
 
 export default config;
