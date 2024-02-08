@@ -20,7 +20,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push
-        uses: docker/build-push-action@v5
-        with:
-          push: true
-          tags: ghcr.io/brandonb927/aprs-discord-bot:latest
+        run: |
+          docker build . --tag ghcr.io/brandonb927/aprs-discord-bot:latest
+          docker push ghcr.io/brandonb927/aprs-discord-bot:latest
+
